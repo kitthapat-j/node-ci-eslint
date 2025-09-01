@@ -1,0 +1,29 @@
+{
+  "name": "ci-eslint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+   "test": "mocha test",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitthapat-j/node-ci-eslint.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kitthapat-j/node-ci-eslint/issues"
+  },
+  "homepage": "https://github.com/kitthapat-j/node-ci-eslint#readme",
+  "devDependencies": {
+    "chai": "^6.0.1",
+    "mocha": "^11.7.1",
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "globals": "^15.0.0"
+  }
+}
