@@ -29,6 +29,7 @@ jobs:
     needs: [lint]
     permissions:
       security-events: write
+      actions: read
 
     steps:
       - name: Checkout repository
@@ -37,12 +38,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: javascript
-          
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-        with:
-          command: npm install
+          languages: javascript-typescript
         
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
