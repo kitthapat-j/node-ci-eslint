@@ -13,7 +13,7 @@ app.get('/calculate', (req, res) => {
       const result = eval(expression);
       res.send(`Result: ${result}`);
     } catch (e) {
-      res.status(400).send("Invalid expression.");
+      res.status(400).send("Invalid expression.", e.message);
     }
   } else {
     res.send("Please provide an expression in the 'expr' query parameter. e.g., /calculate?expr=10%2B5");

@@ -10,23 +10,23 @@ on:
       - main
 
 jobs:
-#  lint:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout repository
- #       uses: actions/checkout@v4
-#      - name: Set up Node.js
-#        uses: actions/setup-node@v4
-#        with:
-#          node-version: '18'
-#      - name: Install dependencies
-#        run: npm install
-#      - name: Run ESLint
-#        run: npm run lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+      - name: Run ESLint
+        run: npm run lint
 
   codeql:
     runs-on: ubuntu-latest
-    #needs: [lint]
+    needs: [lint]
     permissions:
       security-events: write
       actions: read
@@ -45,7 +45,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: [codeql]
+    needs: [lint,codeql]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
